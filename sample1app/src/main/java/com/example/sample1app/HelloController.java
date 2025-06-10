@@ -9,14 +9,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HelloController {
 
-    private boolean flag = false;
-
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public ModelAndView index(ModelAndView mav){
-        flag = !flag;
+        
         mav.setViewName("index");
-        mav.addObject("flag",flag);
-        mav.addObject("msg", "サンプルメッセージです。");
+
+        String[] data = new String[]{"One","two","Three"};
+
+        mav.addObject("data",data);
+
         return mav;
     }
     

@@ -8,13 +8,8 @@
     <body>
         <h1>This is sample page.</h1>
 
-        <div th:if="${flag}">
-            <h5>Alert</h5>
-            <p th:text="${msg}"></p>
-        </div>
-        <div th:unless="${flag}">
-            <h5>Message</h5>
-            <p th:text="${msg}"></p>
-        </div>
+        <ul th:each="item : ${data}">
+            <li th:text="${item}"></li>
+        </ul>
     </body>
 </html>
