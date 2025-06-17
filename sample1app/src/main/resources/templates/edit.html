@@ -3,13 +3,14 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>top page</title>
+        <title th:text="${title}"></title>
     </head>
     <body>
         <h1 th:text="${title}"></h1>
         <p th:text="${msg}"></p>
 
-        <form action="/" method="post" th:object="${formModel}">
+        <form action="/edit" method="post" th:object="${formModel}">
+            <input type="hidden" name="id" th:value="*{id}">
             <div>
                 <label for="title">Title</label>
                 <input type="text" id="title" name="title" th:value="*{title}">
@@ -18,20 +19,7 @@
                 <label for="body">Contents</label>
                 <textarea id="body" name="body" th:text="*{body}"></textarea>
             </div>
-            <input type="submit" value="Create">
+            <input type="submit" value="Update">
         </form>
-
-        <table>
-            <thead>
-                <tr><th>ID</th><th>Title</th><th>Contents</th></tr>
-            </thead>
-            <tbody>
-                <tr th:each="item : ${data}">
-                    <td th:text="${item.id}"></td>
-                    <td th:text="${item.title}"></td>
-                    <td th:text="${item.body}"></td>
-                </tr>
-            </tbody>
-        </table>
     </body>
 </html>
