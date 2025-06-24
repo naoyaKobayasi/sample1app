@@ -6,6 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
@@ -19,6 +21,7 @@ public class TestTable {
     private Integer id;
 
     @Column(name = "title")
+    @NotBlank
     private String title;
 
     @Column(name = "body")

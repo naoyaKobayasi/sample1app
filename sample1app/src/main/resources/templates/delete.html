@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}"></title>
+</head>
+<body>
+    <h1 th:text="${title}"></h1>
+    <p th:text="${msg}"></p>
+
+    <form action="/delete" method="post" th:object="${formModel}">
+        <input type="hidden" id="id" name="id" th:value="*{id}">
+        <ul>
+            <li>Title：<span th:text="*{title}"></span></li>
+            <li>Contents：<span th:text="*{body}"></span></li>
+        </ul>
+        <button type="submit">Delete</button>
+    </form>
+    
+</body>
+</html>

@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title th:text="${title}"></title>
-    </head>
-    <body>
-        <h1 th:text="${title}"></h1>
-        <p th:text="${msg}"></p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}"></title>
+</head>
+<body>
+    <h1 th:text="${title}"></h1>
 
-        <form action="/edit" method="post" th:object="${formModel}">
-            <input type="hidden" name="id" th:value="*{id}">
-            <div>
-                <label for="title">Title</label>
-                <input type="text" id="title" name="title" th:value="*{title}">
-            </div>
-            <div>
-                <label for="body">Contents</label>
-                <textarea id="body" name="body" th:text="*{body}"></textarea>
-            </div>
-            <input type="submit" value="Update">
-        </form>
-    </body>
+    <form action="/edit" method="post" th:object="${formModel}">
+        <input type="hidden" id="id" name="id" th:value="*{id}">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" th:value="*{title}" required>
+        <br>
+        <label for="body">Content:</label>
+        <textarea id="body" name="body" th:text="*{body}" required></textarea>
+        <br>
+        <button type="submit">Update</button>
+    </form>
+    
+</body>
 </html>
